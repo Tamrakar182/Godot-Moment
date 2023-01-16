@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,12 +6,23 @@
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://WalkingEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MovingSpikeEnemy.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 99, 45, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63 )
+}
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 612, 81 )
+position = Vector2( 189, 54 )
 z_index = 10
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
@@ -47,3 +58,14 @@ position = Vector2( 738, 18 )
 
 [node name="Ladder5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 738, 0 )
+
+[node name="MovingSpikeEnemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 36, 45 )
+curve = SubResource( 1 )
+speed = 2
+
+[node name="MovingSpikeEnemy2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 315, 54 )
+curve = SubResource( 2 )
+animation_type = 1
+speed = 2
