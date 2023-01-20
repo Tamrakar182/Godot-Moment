@@ -68,4 +68,4 @@ speed = 2
 position = Vector2( 315, 54 )
 curve = SubResource( 2 )
 animation_type = 1
-speed = 2
+speed = 1
